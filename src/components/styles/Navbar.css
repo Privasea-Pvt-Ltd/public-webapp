@@ -1,0 +1,223 @@
+/* Navbar.jsx css */
+nav {
+    width: 100%;
+    position: sticky;
+    top: 0px;
+    left: 0;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+nav .nav-wrapper {
+    width: 68%;
+    height: 64px;
+    border: 1px solid var(--nav-border-color);
+    padding: 5px 30px;
+    border-radius: var(--nav-border-radius);
+    box-shadow: 0px 7px 0px var(--nav-border-color);
+    backdrop-filter: blur(11px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+nav .nav-logo {
+    height: 100%;
+}
+
+nav .nav-logo a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav .nav-logo a img {
+    width: 100px;
+}
+
+/* nav .nav-links{
+
+} */
+nav .nav-links ul {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    gap: 10px;
+}
+
+/* nav .nav-links ul li{
+    
+} */
+nav .nav-links ul li a {
+    padding: 5px 15px;
+    border: 1px solid var(--nav-border-color);
+    border-radius: var(--nav-border-radius);
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: var(--nav-font-size);
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+}
+
+nav .nav-links ul li a:hover {
+    background-color: black;
+    color: white;
+}
+
+nav .nav-authentication-wrapper {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    z-index: 10;
+}
+
+nav .nav-authentication-wrapper .nav-authentication-btn {
+    width: 200px;
+    height: 64px;
+    border: 1px solid var(--nav-border-color);
+    padding: 7px 3px;
+    border-radius: var(--nav-border-radius);
+    box-shadow: 0px 7px 0px var(--nav-border-color);
+    backdrop-filter: blur(11px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .nav-authentication-wrapper .nav-authentication-btn a {
+    width: 100%;
+    margin: 0 5px;
+    padding: 10px 15px;
+    border-radius: var(--nav-border-radius);
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: var(--nav-font-size);
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+nav .nav-authentication-wrapper .nav-authentication-btn a:first-of-type {
+    color: black;
+}
+
+nav .nav-authentication-wrapper .nav-authentication-btn a:last-of-type {
+    background-color: black;
+    color: white;
+}
+
+nav .nav-authentication-wrapper .nav-authentication-btn a:first-of-type:hover {
+    background-color: lightgray;
+}
+
+nav .nav-authentication-wrapper .nav-authentication-btn:has(a:first-of-type:hover) a:last-of-type {
+    width: 0%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav .nav-authentication-wrapper .nav-authentication-btn:has(a:last-of-type:hover) a:first-of-type {
+    width: 0%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav .hamburger {
+    margin-left: 10px;
+    margin-top: 7px;
+    display: none;
+}
+
+nav .hamburger button {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--nav-border-radius);
+    box-shadow: 0px 0px 5px rgb(170, 170, 170);
+    background-color: transparent;
+    backdrop-filter: blur(11px);
+    outline: none;
+    border: none;
+    font-size: 24px;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+}
+
+nav .hamburger:hover button {
+    background-color: black;
+    cursor: pointer;
+}
+
+nav .hamburger:hover button {
+    color: white;
+}
+
+.portable-device {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(11px);
+    z-index: 9;
+    overflow: hidden;
+    padding: 10px 20px;
+    display: none;
+}
+
+.portable-device .mobile-menu {
+    width: 100%;
+    height: 50vh;
+    border: 1px solid black;
+    border-bottom: 7px solid black;
+    background-color: white;
+    border-radius: 50px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+@media screen and (max-width: 1201px) {
+    nav .nav-wrapper {
+        width: 100%;
+    }
+
+    nav .nav-wrapper .nav-logo {
+        width: 100%;
+        text-align: center;
+        justify-items: center;
+    }
+
+    nav .nav-links {
+        display: none;
+    }
+
+    nav .hamburger {
+        display: block;
+    }
+
+    .enable-portable-device {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .enable-portable-device {
+        display: block;
+    }
+
+    nav .nav-authentication-wrapper .nav-authentication-btn {
+        display: none;
+    }
+
+}
