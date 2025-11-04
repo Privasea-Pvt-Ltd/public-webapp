@@ -1,0 +1,96 @@
+footer{
+    width: 100%;
+    padding: 10px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+footer .copyright-footer{
+    width: calc(100% - 30px);
+    border-top: 1px solid gray;
+    padding: 30px 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    gap: 20px;
+    color: rgb(60, 60, 60);
+}
+
+footer .copyright-footer .copyright-links a{
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+    margin: 0 5px;
+}
+
+footer .copyright-footer .copyright-links a:hover{
+    color: gray;
+}
+
+.social-links{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a{
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+}
+.social-links a i{
+    font-size: 26px;
+}
+.social-links a:hover i{
+    color: gray;
+}
+.social-links i{
+    font-size: 26px;
+    margin-bottom: 4px;
+    margin-right: 5px ;
+}
+.social-links select{
+    margin-bottom: 4px;
+    border: none;
+    outline: none;
+}
+
+footer .footer-wrapper{
+    width: 100%;
+    padding: 30px;
+    border-radius: 50px 50px 0 0;
+    border-top: 7px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 60px;
+}
+footer .footer-wrapper .section{
+    width: 100%;
+}
+footer .footer-wrapper .section h4{
+    padding: 10px 0;
+    font-size: 24px;
+    border-bottom: 1px solid gray;
+}
+footer .footer-wrapper .section ul{
+    padding-top: 10px;
+    list-style-type: none;
+}
+footer .footer-wrapper .section ul li{
+    margin: 2px 0;
+    padding: 5px 0;
+}
+footer .footer-wrapper .section ul li a{
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+}
+footer .footer-wrapper .section ul li a:hover{
+    color: gray;
+}
+
+
+
