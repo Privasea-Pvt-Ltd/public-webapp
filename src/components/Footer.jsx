@@ -1,69 +1,46 @@
 import './styles/Footer.css'
+import { copyrightSections } from "../constants";
+import { socialLinks } from "../constants";
 import React from 'react'
+import Accordion from './Accordion';
 
 const Footer = () => {
-  return (
-    <footer>
-      <div className='footer-wrapper'>
-        <div className='section section1'>
-            <h4>Company</h4>
-            <ul>
-                <li><a href='#'>About Enkey</a></li>
-                <li><a href='#'>Blogs</a></li>
-                <li><a href='#'>Newsroom</a></li>
-                <li><a href='#'>Customer Stories</a></li>
-                <li><a href='#'>Office Location</a></li>
-                <li><a href='#'>Careers</a></li>
-            </ul>
-        </div>
-        <div className='section section2'>
-            <h4>Sales</h4>
-            <ul>
-                <li><a href='#'>Where to Buy</a></li>
-                <li><a href='#'>Contact Us</a></li>
-            </ul>
-        </div>
-        <div className='section section3'>
-            <h4>Compatibility</h4>
-            <ul>
-                <li><a href='#'>HDD/SSD</a></li>
-                <li><a href='#'>Other Devices</a></li>
-            </ul>
-        </div>
-        <div className='section section4'>
-            <h4>Resources</h4>
-            <ul>
-                <li><a href='#'>Products A-Z</a></li>
-                <li><a href='#'>Beta Program</a></li>
-                <li><a href='#'>Bounty Program</a></li>
-                <li><a href='#'>Community</a></li>
-                <li><a href='#'>Subscribe to Newsletter</a></li>
-            </ul>
-        </div>
-      </div>
-      <div className="copyright-footer">
-        <span>Copyright © 2025 Enkey Inc. All rights reserved.</span>
-        <div className="copyright-links">
-            <a href="#">Terms & Conditions</a>|
-            <a href="#">Privacy</a>|
-            <a href="#">Cookie Preference</a>
-        </div>
-        <div className="social-links">
-            <a href="#" title='Meta'><i class="ph ph-meta-logo"></i></a>
-            <a href="#" title='X'><i class="ph ph-x-logo"></i></a>
-            <a href="#" title='Youtube'><i class="ph ph-youtube-logo"></i></a>
-            <a href="#" title='Instagram'><i class="ph ph-instagram-logo"></i></a>
-            <i class="ph ph-globe"></i>
-            <select name="language" id="language">
-                <option value="english">English</option>
-                <option value="lang1">Language 1</option>
-                <option value="lang2">Language 2</option>
-                <option value="lang3">Language 3</option>
-            </select>
-        </div>
-      </div>
-    </footer>
-  )
+    return (
+        <footer>
+            <div className='footer-wrapper'>
+                {
+                    copyrightSections.map((item) => (
+                        <div className={`section section${Number(item.id) + 1}`} key={item.id}>
+                            <h4>{item.title}</h4>
+                            <ul>
+                                {
+                                    (item.links).map((subItem) => (
+                                        <li key={subItem.id}><a href={subItem.url}>{subItem.name}</a></li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    ))
+                }
+                <Accordion items={copyrightSections} />
+            </div>
+            <div className="copyright-footer">
+                <span>Copyright © 2025 Enkey Inc. All rights reserved.</span>
+                <div className="copyright-links">
+                    <a href="#">Terms & Conditions</a>|
+                    <a href="#">Privacy</a>|
+                    <a href="#">Cookie Preference</a>
+                </div>
+                <div className="social-links">
+                    {
+                        socialLinks.map((item) => (
+                            <a href={item.url} title={item.title} key={item.id}><i className={`ph ${item.iconName}`}></i></a>
+                        ))
+                    }
+                </div>
+            </div>
+        </footer>
+    )
 }
 
 export default Footer
