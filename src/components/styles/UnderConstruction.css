@@ -13,7 +13,7 @@
     border-radius: 30px;
     border: 1px solid black;
     border-bottom: 7px solid black;
-    padding: 25px 50px;
+    padding: 70px;
     text-align: center;
     margin: 0 10px;
 }
@@ -41,7 +41,7 @@
     justify-items: center;
     color: rgb(168, 168, 168);
 }
-.working-area .interactive-btn{
+/* .working-area .interactive-btn{
     min-height: 13vh;
     margin-top: 15px;
     display: flex;
@@ -64,4 +64,4 @@
 }
 .working-area .interactive-btn button:hover{
     border-bottom: 7px solid black;
-}
+} */

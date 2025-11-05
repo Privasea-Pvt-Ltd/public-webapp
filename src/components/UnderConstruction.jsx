@@ -12,12 +12,12 @@ const UnderConstruction = () => {
                   <h3>Under Construction!</h3>
                   <p>We’re building something amazing. Stay tuned.</p>
                 </div>
-                <div className="interactive-btn">
+                {/* <div className="interactive-btn">
                     <button><i className="icon ph-bold ph-user" /></button>
                     <button><i className="icon ph-bold ph-camera" /></button>
                     <button><i className="icon ph-bold ph-image" /></button>
                     <button><i className="icon ph-bold ph-house" /></button>
-                </div>
+                </div> */}
             </div>
       </div>
     </>
