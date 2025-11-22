@@ -178,7 +178,7 @@ nav .hamburger:hover button {
 
 .portable-device .mobile-menu {
     width: 100%;
-    height: 50vh;
+    /* height: 50vh; */
     border: 1px solid black;
     border-bottom: 7px solid black;
     background-color: white;
@@ -186,6 +186,57 @@ nav .hamburger:hover button {
     margin: 0 auto;
     margin-top: 100px;
 }
+
+.portable-device .mobile-menu ul{
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    border-radius: 50px;
+    list-style-type: none;
+}
+
+.portable-device .mobile-menu ul li a{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px 30px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+.portable-device .mobile-menu ul li a:hover{
+    background-color: black;
+    color: white;
+}
+
+.portable-device .mobile-menu .mobile-authentication-module{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 15px;
+    margin-top: 20px;
+}
+.portable-device .mobile-menu .mobile-authentication-module a{
+    width: 100%;
+    text-decoration: none;
+    padding: 25px;
+    background-color: black;
+    border-radius: 50px;
+    color: white;
+    text-align: center;
+    transition: background-color 0.2s ease-out;
+}
+
+.portable-device .mobile-menu .mobile-authentication-module a:hover{
+    background-color: #303030;
+}
+
+
 
 @media screen and (max-width: 1201px) {
     nav .nav-wrapper {
@@ -209,6 +260,10 @@ nav .hamburger:hover button {
     .enable-portable-device {
         display: block;
     }
+
+    .enable-mobile-mode{
+        display: none !important;
+    }
 }
 
 @media screen and (max-width: 770px) {
@@ -218,6 +273,10 @@ nav .hamburger:hover button {
 
     nav .nav-authentication-wrapper .nav-authentication-btn {
         display: none;
+    }
+
+    .enable-mobile-mode{
+        display: flex !important;
     }
 
 }

@@ -24,7 +24,7 @@ const Navbar = () => {
       <div className="nav-authentication-wrapper">
         <div className="nav-authentication-btn">
             <a href="#signin">Login</a>
-            <a href="#signup">Download</a>
+            <a href="#signup">Signup</a>
         </div>
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             <button><i className="icon ph-bold ph-list" /></button>
@@ -33,7 +33,17 @@ const Navbar = () => {
 
       <div className={menuOpen ? "portable-device enable-portable-device" : "portable-device"}>
         <div className="mobile-menu">
-          
+          <ul>
+              {navigation.map((item) => (
+                <li key={item.id}>
+                  <a href={item.url}>{item.title}</a>
+                </li>
+              ))}
+              <div className="mobile-authentication-module enable-mobile-mode">
+                <a href="#signin">Login</a>
+                <a href="#signup">Signup</a>
+              </div>
+          </ul>
         </div>
       </div>
     </nav>
