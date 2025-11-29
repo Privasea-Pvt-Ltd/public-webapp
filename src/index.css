@@ -18,10 +18,35 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
+::selection {
+  background-color: black;
+  color: white;
+}
+
+/* For Firefox */
+::-moz-selection {
+  background-color: black;
+  color: white;
+}
+
 #root{
     width: 100%;
     min-height: 100vh;
+}
+
+section{
+    width: 95%;
+    padding: 0 20px;
+    padding-top: 110px;
+    padding-bottom: 50px;
+    margin: 10px auto;
+    /* border: 1px solid lightcoral; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 /* #root p{

@@ -1,0 +1,118 @@
+.cardList{
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+.cardList .cardBox{   
+    width: 350px;
+    max-width: 100%;
+    border-radius: calc(-3px + 20px) calc(27px + 20px) calc(-3px + 20px) calc(-3px + 20px);
+    padding: 20px;
+    position: relative;
+    background-color: white;
+}
+
+.cardList .cardBox .cardText{
+    width: 100%;
+    text-align: justify;
+}
+
+.cardList .cardBox .cardOption{
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    padding: 30px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: red; */
+}
+.cardList .cardBox .cardOption .cardLink a{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 12px;
+}
+.cardList .cardBox .cardOption .cardLink a:hover{
+    background-color: #303030;
+}
+
+
+/* Outline Glow Effect */
+.glass {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 50%;
+    display: block;
+    pointer-events: none;
+}
+.cardBox::before,
+.cardBox::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    z-index: -1;
+    border-radius: 20px 50px 20px 20px;
+}
+.cardBox:nth-child(1):before,
+.cardBox:nth-child(1):after {
+    background: conic-gradient(from var(--angle), #1bf307, #21061e, #d7b509, #21060d, #07d4f3);
+}
+
+.cardBox:nth-child(2):before,
+.cardBox:nth-child(2):after {
+    background: conic-gradient(from var(--angle), #f35807, #060c21, #36d709, #060c21, #f35807);
+}
+
+.cardBox:nth-child(3):before,
+.cardBox:nth-child(3):after {
+    background: conic-gradient(from var(--angle), #dfff00, #060c21, #9600ff, #060c21, #dfff00);
+}
+.cardBox:nth-child(4):before,
+.cardBox:nth-child(4):after {
+    background: conic-gradient(from var(--angle), #07e7f3, #06211e, #d70909, #1f2106, #07f32e);
+}
+
+.cardBox:nth-child(5):before,
+.cardBox:nth-child(5):after {
+    background: conic-gradient(from var(--angle), #99f307, #210606, #d70909, #062120, #0b07f3);
+}
+
+.cardBox:nth-child(6):before,
+.cardBox:nth-child(6):after {
+    background: conic-gradient(from var(--angle), #ff0000, #0f2106, #00fbff, #06211a, #2f00ff);
+}
+
+.cardBox::after {
+    z-index: -2;
+}
+
+.cardBox:hover::before,
+.cardBox:hover::after {
+    animation: glowing-border 2.5s linear infinite;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 52deg;
+    inherits: false;
+}
+
+@keyframes glowing-border {
+    from {
+        --angle: 52deg;
+    }
+    to {
+        --angle: 413deg;
+    }
+}

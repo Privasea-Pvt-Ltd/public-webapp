@@ -128,3 +128,96 @@ export const socialLinks = [
     iconName: "ph-instagram-logo",
   },
 ];
+
+export const pricingList = [
+  {
+    id: "0",
+    planName: "Free Plan",
+    text: "Text",
+    currency: "₹",
+    amount: "0",
+    buttonText: "Get Started",
+    buttonLink: "#",
+    benefits: [
+      "Point 1", 
+      "Point 2", 
+      "Point 3"
+    ],
+    note: "*No credit or debit card required"
+  },
+  {
+    id: "1",
+    planName: "Basic",
+    text: "Text",
+    currency: "₹",
+    amount: "5999",
+    buttonText: "Get Started",
+    buttonLink: "#",
+    benefits: [
+      "Point 1", 
+      "Point 2", 
+      "Point 3"
+    ],
+    note: "*Credit or debit card required"
+  },
+  {
+    id: "2",
+    planName: "Premium",
+    text: "Text",
+    currency: "₹",
+    amount: "19999",
+    buttonText: "Get Started",
+    buttonLink: "#",
+    benefits: [
+      "Point 1", 
+      "Point 2", 
+      "Point 3"
+    ],
+    note: "*Credit or debit card required"
+  },
+];
+
+export const featuresList = [
+  {
+    id: "0",
+    title: "Feature 1",
+    text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea aliquid minima quod minus enim? Ducimus, dolorem illo. Eveniet blanditiis praesentium voluptatum neque omnis numquam mollitia recusandae vel voluptatibus totam? Rerum?",
+    icon: "-",
+    link: "#"
+  },
+  {
+    id: "1",
+    title: "Feature 2",
+    text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea aliquid minima quod minus enim? Ducimus, dolorem illo. Eveniet blanditiis praesentium voluptatum neque omnis numquam mollitia recusandae vel voluptatibus totam? Rerum?",
+    icon: "-",
+    link: "#"
+  },
+  {
+    id: "2",
+    title: "Feature 3",
+    text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea aliquid minima quod minus enim? Ducimus, dolorem illo. Eveniet blanditiis praesentium voluptatum neque omnis numquam mollitia recusandae vel voluptatibus totam? Rerum?",
+    icon: "-",
+    link: "#"
+  },
+  {
+    id: "3",
+    title: "Feature 4",
+    text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea aliquid minima quod minus enim? Ducimus, dolorem illo. Eveniet blanditiis praesentium voluptatum neque omnis numquam mollitia recusandae vel voluptatibus totam? Rerum?",
+    icon: "-",
+    link: "#"
+  },
+  {
+    id: "4",
+    title: "Feature 5",
+    text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea aliquid minima quod minus enim? Ducimus, dolorem illo. Eveniet blanditiis praesentium voluptatum neque omnis numquam mollitia recusandae vel voluptatibus totam? Rerum?",
+    icon: "-",
+    link: "#"
+  },
+  {
+    id: "5",
+    title: "Feature 6",
+    text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea aliquid minima quod minus enim? Ducimus, dolorem illo. Eveniet blanditiis praesentium voluptatum neque omnis numquam mollitia recusandae vel voluptatibus totam? Rerum?",
+    icon: "-",
+    link: "#"
+  },
+];

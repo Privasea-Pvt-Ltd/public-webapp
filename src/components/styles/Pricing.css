@@ -1,0 +1,120 @@
+.pricingList{
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 30px 0;
+}
+.pricingList .pricingBox{   
+    width: 350px;
+    max-width: 100%;
+    border-radius: calc(-3px + 20px) calc(27px + 20px) calc(-3px + 20px) calc(-3px + 20px);
+    padding: 20px;
+    position: relative;
+    background-color: white;
+}
+.pricingList .pricingBox .planText{
+    padding: 10px 0;
+    color: rgb(60, 60, 60);
+}
+.pricingList .pricingBox .product-price{
+    font-size: 36px;
+}
+.pricingList .pricingBox button{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid black;
+    border-bottom: 7px solid black;
+    background-color: white;
+    font-size: 15px;
+    transition: background-color 0.2s ease-out;
+}
+.pricingList .pricingBox button:hover{
+    cursor: pointer;
+    /* background-color: #626262; */
+    background-color: #000;
+    color: white;
+}
+.pricingList .pricingBox .planBenefits{
+    padding: 20px 0;
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+.pricingList .pricingBox .planBenefits li{
+    font-size: 12px;
+    padding: 10px 5px;
+    border-bottom: 1px solid rgb(60, 60, 60);
+}
+.pricingList .pricingBox .note{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 8px;
+    padding-bottom: 10px;
+}
+
+/* Outline Glow Effect */
+.glass {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 50%;
+    display: block;
+    pointer-events: none;
+}
+.pricingBox::before,
+.pricingBox::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    z-index: -1;
+    border-radius: 20px 50px 20px 20px;
+}
+.pricingBox:nth-child(1):before,
+.pricingBox:nth-child(1):after {
+    /* background: conic-gradient(from var(--angle), #0c63e7, #060c21, #d11149, #060c21, #0c63e7); */
+    background: conic-gradient(from var(--angle), #000, #fff, #000, #fff);
+}
+
+.pricingBox:nth-child(2):before,
+.pricingBox:nth-child(2):after {
+    background: conic-gradient(from var(--angle), #f35807, #060c21, #36d709, #060c21, #f35807);
+}
+
+.pricingBox:nth-child(3):before,
+.pricingBox:nth-child(3):after {
+    background: conic-gradient(from var(--angle), #dfff00, #060c21, #9600ff, #060c21, #dfff00);
+}
+
+.pricingBox::after {
+    z-index: -2;
+}
+
+.pricingBox:hover::before,
+.pricingBox:hover::after {
+    animation: glowing-border 2.5s linear infinite;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 52deg;
+    inherits: false;
+}
+
+@keyframes glowing-border {
+    from {
+        --angle: 52deg;
+    }
+    to {
+        --angle: 413deg;
+    }
+}
