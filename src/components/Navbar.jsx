@@ -27,7 +27,11 @@ const Navbar = () => {
             <a href="#signup">Signup</a>
         </div>
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-            <button><i className="icon ph-bold ph-list" /></button>
+            {
+              menuOpen ? 
+              <button className='black'><i className="icon ph-bold ph-x" /></button> : 
+              <button><i className="icon ph-bold ph-list" /></button>
+            }
         </div>
       </div>
 
@@ -45,7 +49,7 @@ const Navbar = () => {
               </div>
           </ul>
         </div>
-      </div>
+      </div >
     </nav>
   );
 };

@@ -23,6 +23,7 @@ nav .nav-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 10;
 }
 
 nav .nav-logo {
@@ -138,6 +139,7 @@ nav .hamburger {
     display: none;
 }
 
+
 nav .hamburger button {
     width: 60px;
     height: 60px;
@@ -157,9 +159,11 @@ nav .hamburger button {
 nav .hamburger:hover button {
     background-color: black;
     cursor: pointer;
+    color: white;
 }
 
-nav .hamburger:hover button {
+nav .hamburger .black{
+    background-color: black;
     color: white;
 }
 
@@ -267,9 +271,9 @@ nav .hamburger:hover button {
 }
 
 @media screen and (max-width: 770px) {
-    .enable-portable-device {
+    /* .enable-portable-device {
         display: block;
-    }
+    } */
 
     nav .nav-authentication-wrapper .nav-authentication-btn {
         display: none;
