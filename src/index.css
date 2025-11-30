@@ -36,6 +36,15 @@
     min-height: 100vh;
 }
 
+.Toastify{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
 section{
     width: 95%;
     padding: 0 20px;
@@ -48,6 +57,7 @@ section{
     justify-content: space-evenly;
     flex-direction: column;
 }
+
 
 /* #root p{
   text-align: justify;

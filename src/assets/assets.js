@@ -1,4 +1,5 @@
 import brandLogo from "./brandLogo.png";
-export{
+
+export const assets = {
     brandLogo,
-};
+}

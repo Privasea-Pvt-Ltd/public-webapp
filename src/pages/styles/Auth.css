@@ -1,0 +1,87 @@
+.auth-container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+.authbox{
+    width: 27%;
+    /* height: 70vh; */
+    padding: 40px;
+    /* padding-bottom: 40px; */
+    background-color: white;
+    border-radius: 30px;
+    text-align: center;
+}
+.authbox img{
+    /* margin-top: 30px; */
+    margin-bottom: 60px;
+    align-items: center;
+}
+.authbox form div{
+    margin: 0 auto;
+    margin-bottom: 1.3rem;
+    /* padding: 0 30px; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: start;
+    text-align: left;
+    flex-direction: column;
+    /* gap: 50px; */
+}
+.authbox form div label{
+    font-weight: 500;
+}
+.authbox form div input{
+    width: 100%;
+    padding: 10px;
+    margin-top: 7px;
+    border-radius: 10px;
+    border: 1px solid black;
+    outline: none;
+}
+
+.authbox form div .forgotPasswordlink{
+    width: fit-content;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+.authbox form div .forgotPasswordlink:hover{
+    color: rgb(60, 60, 60);
+}
+
+.authbox form .btn{
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid black;
+    border-bottom: 7px solid black;
+    background-color: white;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease-in-out;
+}
+.authbox form .btn:hover{
+    background-color: #383838;
+    color: white;
+}
+
+.switcher p{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.switcher p span{
+    cursor: pointer;
+    font-weight: 500;
+}
+.switcher p span:hover{
+    color: rgb(60, 60, 60);
+}

@@ -1,15 +1,17 @@
 import './styles/Navbar.css'
-import { brandLogo } from '../assets';
+import { assets } from '../assets/assets.js';
 import { navigation } from "../constants";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <nav>
       <div className="nav-wrapper">
         <div className="nav-logo">
-          <a href="/"><img src={brandLogo} alt='Logo' /></a>
+          <a href="/"><img src={assets.brandLogo} alt='Logo' /></a>
         </div>
         <div className="nav-links">
           <ul>
@@ -23,8 +25,8 @@ const Navbar = () => {
       </div>
       <div className="nav-authentication-wrapper">
         <div className="nav-authentication-btn">
-            <a href="#signin">Login</a>
-            <a href="#signup">Signup</a>
+            <a onClick={() => navigate("/public-webapp/auth")}>Login</a>
+            <a onClick={() => navigate("/public-webapp/auth")}>Signup</a>
         </div>
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             {
@@ -44,8 +46,8 @@ const Navbar = () => {
                 </li>
               ))}
               <div className="mobile-authentication-module enable-mobile-mode">
-                <a href="#signin">Login</a>
-                <a href="#signup">Signup</a>
+                <a onClick={() => navigate("/public-webapp/auth")}>Login</a>
+                <a onClick={() => navigate("/public-webapp/auth")}>Signup</a>
               </div>
           </ul>
         </div>
