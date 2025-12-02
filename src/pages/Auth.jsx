@@ -52,33 +52,45 @@ function Login() {
     <>
       <div className="auth-container">
         <div className="authbox">
-          <Link to="/public-webapp" ><img src={assets.brandLogo} alt="Logo" width={120}/></Link>
+
+          <div className="logo-container">
+            <Link to="/public-webapp" ><img src={assets.brandLogo} alt="Logo" width={120}/></Link>
+          </div>
+
           <form onSubmit={onSubmitHandler}>
             {
               isCreateAccount && (
-                <div className='nameDiv'>
+                <div>
                   <label htmlFor="fullName">Full name</label>
-                  <input type='text' id=' fullName' placeholder='Enter fullname' required onChange={(e) => setName(e.target.value)} value={name}/>
+                  <input type='text' id='fullName' placeholder='Enter fullname' autoFocus required onChange={(e) => setName(e.target.value)} value={name}/>
                 </div>
               )
             }
-            <div className='emailDiv'>
+            <div>
               <label htmlFor="email">Email</label>
-              <input type='email' id='email' placeholder='Enter email' required onChange={(e) => setEmail(e.target.value)} value={email}/>
+              <input type='email' id='email' placeholder='Enter email' autoFocus required onChange={(e) => setEmail(e.target.value)} value={email}/>
             </div>
-            <div className='passwordDiv'>
-              <label htmlFor="password">Password</label>
+
+            <div>
+              <div className="passwordwrapper">
+                <label htmlFor="password">Password</label>
+                <Link to="/public-webapp/reset-password" className='forgotPasswordlink'>Forgot password?</Link>
+              </div>
               <input type='password' id='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} value={password}/>
             </div>
-            <div className='forgotPasswordDiv'>
-              <Link to="/public-webapp/reset-password" className='forgotPasswordlink'>
-                Forgot password?
-              </Link>
-            </div>
+
             <button type='submit' className='btn' disabled={loading}>
               {loading ? "Loading..." : isCreateAccount ? "Signup" : "Login"}
               {/* {isCreateAccount ? "Signup" : "Login"} */}
             </button>
+          </form>
+           <div className='divider'>
+              <span>OR</span>
+            </div>
+
+            <button className='social-btn'><img src={assets.googleIcon} alt="Google Icon" />Sign in with Google</button>
+            <button className='social-btn'><img src={assets.appleIcon} alt="Apple Icon" />Sign in with Apple</button>
+
             <div className='switcher'>
               <p>
                 {isCreateAccount ? 
@@ -87,7 +99,6 @@ function Login() {
                 }
               </p>
             </div>
-          </form>
         </div>
       </div>
     </>

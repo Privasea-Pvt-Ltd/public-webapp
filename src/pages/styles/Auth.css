@@ -7,23 +7,23 @@
     background-color: black;
 }
 .authbox{
-    width: 27%;
+    width: 400px;
     /* height: 70vh; */
-    padding: 40px;
-    /* padding-bottom: 40px; */
+    padding: 32px 40px;
     background-color: white;
     border-radius: 30px;
     text-align: center;
 }
+.authbox .logo-container{
+    height: 56px;
+    padding-bottom: 20px;
+}
 .authbox img{
-    /* margin-top: 30px; */
-    margin-bottom: 60px;
     align-items: center;
 }
 .authbox form div{
     margin: 0 auto;
-    margin-bottom: 1.3rem;
-    /* padding: 0 30px; */
+    /* margin-bottom: 1.3rem; */
     display: flex;
     /* align-items: center; */
     justify-content: start;
@@ -33,14 +33,22 @@
 }
 .authbox form div label{
     font-weight: 500;
+    padding-bottom: 4px;
 }
 .authbox form div input{
     width: 100%;
     padding: 10px;
-    margin-top: 7px;
+    margin-bottom: 16px;
     border-radius: 10px;
     border: 1px solid black;
     outline: none;
+}
+.passwordwrapper{
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between !important;
+    margin: 0 !important;
+    flex-direction: row !important;
 }
 
 .authbox form div .forgotPasswordlink{
@@ -55,7 +63,8 @@
 
 .authbox form .btn{
     width: 100%;
-    margin: 0 auto;
+    margin-top: 16px;
+    margin-bottom: 20px;
     padding: 10px;
     border-radius: 20px;
     outline: none;
@@ -70,10 +79,56 @@
 .authbox form .btn:hover{
     background-color: #383838;
     color: white;
+    cursor: pointer;
+}
+
+.divider{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+}
+.divider span{
+    padding: 0 12px;
+    font-size: 14px;
+    color: #666;
+}
+
+.social-btn{
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid black;
+    /* border-bottom: 7px solid black; */
+    background-color: white;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease-out;
+}
+
+.social-btn:hover{
+    /* background-color: #bbb; */
+    background-color: #383838;
+    color: white;
+    cursor: pointer;
+}
+.social-btn img{
+    width: 24px;
+    padding-right: 5px;
+    vertical-align: top;
 }
 
 .switcher p{
-    margin-top: 15px;
+    margin-top: 12px;
     text-align: center;
     font-size: 14px;
 }

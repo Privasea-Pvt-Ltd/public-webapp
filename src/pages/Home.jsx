@@ -10,7 +10,7 @@ function Home() {
     <>
       <Navbar/>
       <UnderConstruction/>
-      <Features/>
+      {/* <Features/> */}
       <Pricing/>
       <Footer/>
     </>
