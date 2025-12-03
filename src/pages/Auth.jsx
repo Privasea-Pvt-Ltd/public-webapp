@@ -6,14 +6,13 @@ import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 import { toast } from 'react-toastify';
 
-
 function Login() {
   const [isCreateAccount, setIsCreateAccount] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const {backendURL, setIsLoggedIn, getUserData} = useContext(AppContext);
+  const {backendURL, setIsLoggedIn} = useContext(AppContext);
   const navigate = useNavigate();
 
   const onSubmitHandler = async (e) => {
@@ -35,14 +34,14 @@ function Login() {
         const response = await axios.post(`${backendURL}/login`, {email, password});
         if(response.status === 200){
           setIsLoggedIn(true);
-          getUserData();
           navigate("/public-webapp/dashboard");
-        }else{
-          toast.error("Email or Password is incorrect!");
         }
       }
     }catch(error){
-      toast.error(error.response.data.message);
+      setPassword("");
+      toast.error(error.response.data.message,
+        {className: "error-toast"}
+      );
     }finally{
       setLoading(false);
     }
@@ -61,27 +60,41 @@ function Login() {
             {
               isCreateAccount && (
                 <div>
-                  <label htmlFor="fullName">Full name</label>
-                  <input type='text' id='fullName' placeholder='Enter fullname' autoFocus required onChange={(e) => setName(e.target.value)} value={name}/>
+                  <label htmlFor="name">Name</label>
+                  <input type='text' id='name' placeholder='Name' autoFocus required onChange={(e) => setName(e.target.value)} value={name}/>
                 </div>
               )
             }
+            
             <div>
               <label htmlFor="email">Email</label>
-              <input type='email' id='email' placeholder='Enter email' autoFocus required onChange={(e) => setEmail(e.target.value)} value={email}/>
+              <input type='email' id='email' placeholder='Email' autoFocus required onChange={(e) => setEmail(e.target.value)} value={email}/>
             </div>
 
             <div>
               <div className="passwordwrapper">
                 <label htmlFor="password">Password</label>
-                <Link to="/public-webapp/reset-password" className='forgotPasswordlink'>Forgot password?</Link>
+                {!isCreateAccount && (<Link to="/public-webapp/reset-password" className='forgotPasswordlink'>Forgot password?</Link>)}
               </div>
-              <input type='password' id='password' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} value={password}/>
+              <input type='password' 
+                name='password' 
+                id='password' 
+                placeholder='Password' 
+                required 
+                onPaste={(e) => e.preventDefault()}
+                onCopy={(e) => e.preventDefault()}
+                onCut={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                onDrop={(e) => e.preventDefault()}
+                autoComplete="off" 
+                onChange={(e) => setPassword(e.target.value)} 
+                value={password}
+              />
             </div>
+            
 
             <button type='submit' className='btn' disabled={loading}>
-              {loading ? "Loading..." : isCreateAccount ? "Signup" : "Login"}
-              {/* {isCreateAccount ? "Signup" : "Login"} */}
+              {loading ? "Please wait..." : isCreateAccount ? "Signup" : "Login"}
             </button>
           </form>
            <div className='divider'>

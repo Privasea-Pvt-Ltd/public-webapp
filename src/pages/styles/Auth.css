@@ -140,3 +140,7 @@
 .switcher p span:hover{
     color: rgb(60, 60, 60);
 }
+
+.error-toast{
+    color: black;
+}

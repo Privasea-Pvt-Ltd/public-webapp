@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className="nav-authentication-wrapper">
         <div className="nav-authentication-btn">
             <a onClick={() => navigate("/public-webapp/auth")}>Login</a>
-            <a onClick={() => navigate("/public-webapp/auth")}>Signup</a>
+            <a href='#' >Download</a>
         </div>
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
             {
@@ -47,7 +47,7 @@ const Navbar = () => {
               ))}
               <div className="mobile-authentication-module enable-mobile-mode">
                 <a onClick={() => navigate("/public-webapp/auth")}>Login</a>
-                <a onClick={() => navigate("/public-webapp/auth")}>Signup</a>
+                <a href='#' >Download</a>
               </div>
           </ul>
         </div>

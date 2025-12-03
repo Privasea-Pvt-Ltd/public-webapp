@@ -150,7 +150,7 @@ export const pricingList = [
     planName: "Basic",
     text: "Text",
     currency: "₹",
-    amount: "5999",
+    amount: "----",
     buttonText: "Get Started",
     buttonLink: "#",
     benefits: [
@@ -165,7 +165,7 @@ export const pricingList = [
     planName: "Premium",
     text: "Text",
     currency: "₹",
-    amount: "19999",
+    amount: "----",
     buttonText: "Get Started",
     buttonLink: "#",
     benefits: [
