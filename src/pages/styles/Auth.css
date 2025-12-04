@@ -51,13 +51,13 @@
     flex-direction: row !important;
 }
 
-.authbox form div .forgotPasswordlink{
+.authbox form div .forgotPasswordlink, .loginLink, .signupLink{
     width: fit-content;
     text-decoration: none;
     color: black;
     font-size: 14px;
 }
-.authbox form div .forgotPasswordlink:hover{
+.authbox form div .forgotPasswordlink:hover, .loginLink:hover, .signupLink:hover{
     color: rgb(60, 60, 60);
 }
 
