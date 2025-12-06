@@ -1,15 +1,17 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { assets } from '../assets/assets'
-import './styles/Auth.css'
-import React, { useContext, useState } from 'react'
+import './styles/AccountVerify.css'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 import { toast } from 'react-toastify';
 
 function AccountVerify() {
-  const [otp, setOtp] = useState("");
+  const [otpArr, setOtpArr] = useState(new Array(6).fill(""));
+  const refArr = useRef([]);
   const [loading, setLoading] = useState(false);
   const { backendURL } = useContext(AppContext);
+
   const navigate = useNavigate();
 
   const onSubmitHandler = async (e) => {
@@ -18,17 +20,39 @@ function AccountVerify() {
     setLoading(true);
     try {
       //Reset Password
-      const response = await axios.post(`${backendURL}/verify-otp`, {otp});
+      otp = otpArr.join("");
+      const response = await axios.post(`${backendURL}/verify-otp`, { otp });
+      console.log(otpArr);
       if (response.status === 200) {
         // navigate("/public-webapp/dashboard");
       }
     } catch (error) {
-      setOtp("");
+      setOtpArr(new Array(6).fill(""));
       toast.error(error.response.data.message,
         { className: "error-toast" }
       );
     } finally {
       setLoading(false);
+    }
+  }
+
+  useEffect(()=>{
+    refArr.current[0]?.focus();
+  }, [])
+
+  const handleOnChange = (value, index) =>{
+    if(isNaN(value)) return;
+    const newValue = value.trim();
+    const newArr = [...otpArr];
+    newArr[index] = newValue.slice(-1);
+    setOtpArr(newArr);
+
+    newValue && refArr.current[index+1]?.focus();
+  };
+
+  const handleOnKeyDown = (e, index) => {
+    if(!e.target.value && e.key === "Backspace"){
+      refArr.current[index-1]?.focus();
     }
   }
 
@@ -43,9 +67,31 @@ function AccountVerify() {
 
           <form onSubmit={onSubmitHandler}>
 
-            <div>
-              <label htmlFor="otp">OTP</label>
-              <input type='text' id='otp' placeholder='OTP' required onChange={(e) => setOtp(e.target.value)} value={otp} />
+            <div className='otpBox'>
+              <div className='otpheader'>
+                <h3>Verify OTP</h3>
+                <p>Enter the 6-digit code sent to <span>abc@gmail.com</span></p>
+              </div>
+              <div className='otpFieldBox'>
+                {
+                  otpArr.map((input, index) => {
+                    return (
+                      <input className='otp-input'
+                        name={`otp-input${index+1}`}
+                        type='text'
+                        key={index}
+                        value={otpArr[index]}
+                        ref={input => {refArr.current[index] = input}}
+                        onChange={(e) => handleOnChange(e.target.value, index)}
+                        onKeyDown={(e) => handleOnKeyDown(e, index)}
+                      />
+                    )
+                  })
+                }
+              </div>
+              <div className='otpfooter'>
+                <p>Don't receive code? <strong>Resend OTP</strong></p>
+              </div>
             </div>
 
             <button type='submit' className='btn' disabled={loading}>

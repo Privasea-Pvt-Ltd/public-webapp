@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 function ProtectedRoute({children}) {
     const {isLoggedIn} = useContext(AppContext);
 
-    return isLoggedIn ? children : <Navigate to="/public-webapp/auth" replace/>;
+    return isLoggedIn ? children : <Navigate to="/public-webapp/login" replace/>;
 }
 
 export default ProtectedRoute

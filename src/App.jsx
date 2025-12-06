@@ -16,12 +16,17 @@ function App() {
         <Route path='/public-webapp' element={<Home />} />
         <Route path='/public-webapp/login' element={<Login />} /> 
         <Route path='/public-webapp/signup' element={<Signup />} />
-        <Route path='/public-webapp/account-verify' element={<AccountVerify/>} />
         <Route path='/public-webapp/reset-password' element={<ResetPassword/>} />
 
         <Route path='/public-webapp/dashboard' element={
           <ProtectedRoute>
             <Dashboard />
+          </ProtectedRoute>
+        } />
+
+        <Route path='/public-webapp/account-verify' element={
+          <ProtectedRoute>
+            <AccountVerify/>
           </ProtectedRoute>
         } />
       </Routes>
