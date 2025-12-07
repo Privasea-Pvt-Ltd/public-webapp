@@ -1,0 +1,32 @@
+.input_field input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border: 1px solid black;
+    /* caret-color: black; */
+    /* outline: none; */
+    font-size: 14px;
+}
+
+.label_wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label_wrapper label{
+    font-weight: 500;
+    padding-bottom: 4px;
+}
+
+.label_wrapper a{
+    width: fit-content;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.label_wrapper a:hover{
+    color: rgb(60, 60, 60);
+}

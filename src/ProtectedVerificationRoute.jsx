@@ -3,7 +3,7 @@ import { AppContext } from './context/AppContext'
 import { Navigate } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 
-function ProtectedRoute({ children }) {
+function ProtectedVerificationRoute({ children }) {
     const { isLoggedIn, isVerified } = useContext(AppContext);
 
     if (isLoggedIn === null || isVerified === null) {
@@ -14,14 +14,15 @@ function ProtectedRoute({ children }) {
         return <Navigate to="/public-webapp/login" replace />;
     }
 
-    if (!isVerified) {
-        return <Navigate to="/public-webapp/verify" replace />;
+    // If already verified, prevent access to OTP page
+    if (isVerified) {
+        return <Navigate to="/public-webapp/dashboard" replace />;
     }
-
-    // return (isLoggedIn && isVerified) ? children : <Navigate to="/public-webapp/login" replace />;
 
     return children;
 
+    // return isVerified ? children : <Navigate to="/public-webapp/login" replace />;
+
 }
 
-export default ProtectedRoute
+export default ProtectedVerificationRoute

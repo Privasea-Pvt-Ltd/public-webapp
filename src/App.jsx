@@ -1,12 +1,13 @@
 import { ToastContainer } from 'react-toastify'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import AccountVerify from './pages/AccountVerify'
-import ResetPassword from './pages/ResetPassword'
-import Dashboard from './pages/Dashboard'
+import ResetPassword from './pages/Reset_Password/ResetPassword'
+import Dashboard from './pages/Dashboard/Dashboard'
 import ProtectedRoute from './ProtectedRoute'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
+import Login from './pages/Login/Login'
+import Signup from './pages/Signup/Signup'
+import Verify from './pages/Verify/Verify'
+import ProtectedVerificationRoute from './ProtectedVerificationRoute'
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
       <ToastContainer position="bottom-right"/>
       <Routes>
         <Route path='/public-webapp' element={<Home />} />
-        <Route path='/public-webapp/login' element={<Login />} /> 
         <Route path='/public-webapp/signup' element={<Signup />} />
+        {/* <Route path='/public-webapp/verify' element={<Verify />} /> */}
+        <Route path='/public-webapp/login' element={<Login />} /> 
         <Route path='/public-webapp/reset-password' element={<ResetPassword/>} />
 
         <Route path='/public-webapp/dashboard' element={
@@ -24,11 +26,12 @@ function App() {
           </ProtectedRoute>
         } />
 
-        <Route path='/public-webapp/account-verify' element={
-          <ProtectedRoute>
-            <AccountVerify/>
-          </ProtectedRoute>
+        <Route path='/public-webapp/verify' element={
+          <ProtectedVerificationRoute>
+            <Verify/>
+          </ProtectedVerificationRoute>
         } />
+
       </Routes>
     </>
   )
