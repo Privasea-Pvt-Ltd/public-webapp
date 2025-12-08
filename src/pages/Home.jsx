@@ -1,19 +1,11 @@
-import Navbar from '../components/Navbar'
-import UnderConstruction from '../components/UnderConstruction'
-import Features from '../components/Features'
-import Pricing from '../components/Pricing'
-import Footer from '../components/Footer'
-import { useContext } from 'react'
-import { AppContext } from '../context/AppContext'
-import { Navigate } from 'react-router-dom'
+import Navbar from '../components/Navbar/Navbar'
+import UnderConstruction from '../components/UnderConstruction/UnderConstruction'
+import Features from '../components/Features/Features'
+import Pricing from '../components/Pricing/Pricing'
+import Footer from '../components/Footer/Footer'
 
 function Home() {
-  const {isLoggedIn} = useContext(AppContext);
-
-  if (isLoggedIn === null) {
-    return <Navigate to="/public-webapp/dashboard" replace />;
-  }
-
+  
   return (
     <>
       <Navbar />

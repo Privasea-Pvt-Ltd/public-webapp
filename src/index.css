@@ -7,7 +7,7 @@
   --nav-font-size: 16px;
 }
 
-.dark-mode{
+.dark-mode {
   --base-color: black;
   --nav-border-color: white;
   --nav-box-shadow: whitesmoke;
@@ -20,23 +20,23 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
+
 ::selection {
   background-color: black;
   color: white;
 }
 
-/* For Firefox */
 ::-moz-selection {
   background-color: black;
   color: white;
 }
 
-#root{
-    width: 100%;
-    min-height: 100vh;
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
-.Toastify{
+.Toastify {
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -45,21 +45,15 @@
   z-index: 10;
 }
 
-section{
-    width: 95%;
-    padding: 0 20px;
-    padding-top: 110px;
-    padding-bottom: 50px;
-    margin: 10px auto;
-    /* border: 1px solid lightcoral; */
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
+section {
+  width: 95%;
+  padding: 0 20px;
+  padding-top: 110px;
+  padding-bottom: 50px;
+  margin: 10px auto;
+  /* border: 1px solid lightcoral; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
-
-
-/* #root p{
-  text-align: justify;
-  padding: 50px;
-} */

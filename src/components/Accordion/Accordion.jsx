@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import './styles/Accordion.css'
+import accordionCss from './Accordion.module.css'
 
-const Accordion = ({items}) => {
+const Accordion = ({items, footerCss=""}) => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const handleItem = (index) => {
@@ -12,12 +12,12 @@ const Accordion = ({items}) => {
     <>
       {
         items.map((item, index) => (
-            <div key={item.id} className='accordion-item'>
-                <button className='accordion-title' onClick={() => handleItem(index)}>
+            <div key={item.id} className={footerCss.accordion_item}>
+                <button className={accordionCss.accordion_title} onClick={() => handleItem(index)}>
                     {item.title}
-                    {openIndex === index ? (<i className="ph ph-caret-up right"></i>) : (<i className="ph ph-caret-down right"></i>)}
+                    {openIndex === index ? (<i className={`ph ph-caret-up ${accordionCss.right}`}></i>) : (<i className={`ph ph-caret-down ${accordionCss.right}`}></i>)}
                 </button>
-                {openIndex === index && <div className='accordion-content'>
+                {openIndex === index && <div className={accordionCss.accordion_content}>
                     <ul>
                         {
                             (item.links).map((subItem) => (

@@ -1,0 +1,40 @@
+.working_container{
+    width: 100%;
+    height: calc(100vh - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.working_area{
+    min-width: 50%;
+    border-radius: 30px;
+    border: 1px solid black;
+    border-bottom: 7px solid black;
+    padding: 70px;
+    text-align: center;
+    margin: 0 10px;
+}
+.logo img{
+    width: 180px;
+}
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 15px;
+}
+
+.content h3{
+    letter-spacing: 3px;
+    padding: 0 10px;
+}
+.content p{
+    padding: 0 10px;
+    justify-items: center;
+    color: rgb(168, 168, 168);
+}

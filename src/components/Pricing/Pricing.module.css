@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     padding: 30px 0;
 }
-.pricingList .pricingBox{   
+.pricingBox{   
     width: 350px;
     max-width: 100%;
     border-radius: calc(-3px + 20px) calc(27px + 20px) calc(-3px + 20px) calc(-3px + 20px);
@@ -16,14 +16,14 @@
     position: relative;
     background-color: white;
 }
-.pricingList .pricingBox .planText{
+.planText{
     padding: 10px 0;
     color: rgb(60, 60, 60);
 }
-.pricingList .pricingBox .product-price{
+.product_price{
     font-size: 36px;
 }
-.pricingList .pricingBox button{
+.pricingBox button{
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -35,23 +35,23 @@
     font-size: 15px;
     transition: background-color 0.2s ease-out;
 }
-.pricingList .pricingBox button:hover{
+.pricingBox button:hover{
     cursor: pointer;
     /* background-color: #626262; */
     background-color: #000;
     color: white;
 }
-.pricingList .pricingBox .planBenefits{
+.planBenefits{
     padding: 20px 0;
     margin-bottom: 20px;
     list-style-type: none;
 }
-.pricingList .pricingBox .planBenefits li{
+.planBenefits li{
     font-size: 12px;
     padding: 10px 5px;
     border-bottom: 1px solid rgb(60, 60, 60);
 }
-.pricingList .pricingBox .note{
+.note{
     width: 100%;
     position: absolute;
     left: 0;

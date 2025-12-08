@@ -3,11 +3,11 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import ResetPassword from './pages/Reset_Password/ResetPassword'
 import Dashboard from './pages/Dashboard/Dashboard'
-import ProtectedRoute from './ProtectedRoute'
+import ProtectedRoute from './routes/ProtectedRoute'
 import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
 import Verify from './pages/Verify/Verify'
-import ProtectedVerificationRoute from './ProtectedVerificationRoute'
+import VerificationRoute from './routes/VerificationRoute'
 
 function App() {
   return (
@@ -16,7 +16,6 @@ function App() {
       <Routes>
         <Route path='/public-webapp' element={<Home />} />
         <Route path='/public-webapp/signup' element={<Signup />} />
-        {/* <Route path='/public-webapp/verify' element={<Verify />} /> */}
         <Route path='/public-webapp/login' element={<Login />} /> 
         <Route path='/public-webapp/reset-password' element={<ResetPassword/>} />
 
@@ -27,9 +26,9 @@ function App() {
         } />
 
         <Route path='/public-webapp/verify' element={
-          <ProtectedVerificationRoute>
+          <VerificationRoute>
             <Verify/>
-          </ProtectedVerificationRoute>
+          </VerificationRoute>
         } />
 
       </Routes>

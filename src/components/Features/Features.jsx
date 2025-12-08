@@ -1,7 +1,7 @@
 import React from 'react'
-import "./styles/Features.css"
-import Heading from './Heading'
-import { featuresList } from "../constants";
+import "./Features.css"
+import Heading from '../Heading/Heading'
+import { featuresList } from "../../constants";
 
 const Features = () => {
   return (

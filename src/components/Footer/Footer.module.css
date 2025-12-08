@@ -6,7 +6,7 @@ footer{
     gap: 50px;
 }
 
-footer .copyright-footer{
+.copyright_footer{
     width: calc(100% - 30px);
     border-top: 1px solid gray;
     padding: 30px 15px;
@@ -18,57 +18,57 @@ footer .copyright-footer{
     color: rgb(60, 60, 60);
 }
 
-footer .copyright-footer span{
+.copyright_footer span{
     text-align: center;
 }
 
-footer .copyright-footer .copyright-links{
+.copyright_links{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-footer .copyright-footer .copyright-links a{
+.copyright_links a{
     text-decoration: none;
     color: rgb(60, 60, 60);
     margin: 0 5px;
     text-align: center;
 }
 
-footer .copyright-footer .copyright-links a:hover{
+.copyright_links a:hover{
     color: gray;
 }
 
-.social-links{
+.social_links{
     margin-left: auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.social-links a{
+.social_links a{
     text-decoration: none;
     color: black;
     margin: 0 10px;
 }
-.social-links a i{
+.social_links a i{
     font-size: 26px;
 }
-.social-links a:hover i{
+.social_links a:hover i{
     color: gray;
 }
-.social-links i{
+.social_links i{
     font-size: 26px;
     margin-bottom: 4px;
     margin-right: 5px ;
 }
-.social-links select{
+.social_links select{
     margin-bottom: 4px;
     border: none;
     outline: none;
 }
 
-footer .footer-wrapper{
+.footer_wrapper{
     width: 100%;
     padding: 30px;
     border-radius: 50px 50px 0 0;
@@ -77,58 +77,58 @@ footer .footer-wrapper{
     justify-content: space-evenly;
     gap: 60px;
 }
-footer .footer-wrapper .section{
+.section{
     width: 100%;
 }
-footer .footer-wrapper .section h4{
+.section h4{
     padding: 10px 0;
     font-size: 24px;
     border-bottom: 1px solid gray;
 }
-footer .footer-wrapper .section ul{
+.section ul{
     padding-top: 10px;
     list-style-type: none;
 }
-footer .footer-wrapper .section ul li{
+.section ul li{
     margin: 2px 0;
     padding: 5px 0;
 }
-footer .footer-wrapper .section ul li a{
+.section ul li a{
     text-decoration: none;
     color: rgb(60, 60, 60);
 }
-footer .footer-wrapper .section ul li a:hover{
+.section ul li a:hover{
     color: gray;
 }
 
-.accordion-item{
+.accordion_item{
     display: none;
 }
 
 @media screen and (max-width: 1081px) {
-    footer .copyright-footer{
+    .copyright_footer{
         text-align: left;
         justify-content: space-evenly;
         flex-wrap: wrap;
         margin: auto;
     }
-    .social-links{
+    .social_links{
         margin: auto;
     }
     footer{
         padding: 5px;
         gap: 0px;
     }
-    footer .footer-wrapper{
+    .footer_wrapper{
         display: block;
         justify-items: center;
         border-top: 5px solid black;
         padding: 30px;
     }
-    footer .footer-wrapper .section{
+    .section{
         display: none;
     }
-    .accordion-item{
+    .accordion_item{
         width: 100%;
         margin-bottom: 10px;
         display: block;

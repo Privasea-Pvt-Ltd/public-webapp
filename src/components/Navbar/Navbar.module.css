@@ -1,4 +1,3 @@
-/* Navbar.jsx css */
 nav {
     width: 100%;
     position: sticky;
@@ -12,7 +11,7 @@ nav {
     z-index: 10;
 }
 
-nav .nav-wrapper {
+.nav_wrapper {
     width: 68%;
     height: 64px;
     border: 1px solid var(--nav-border-color);
@@ -26,11 +25,11 @@ nav .nav-wrapper {
     z-index: 10;
 }
 
-nav .nav-logo {
+.nav_logo {
     height: 100%;
 }
 
-nav .nav-logo a {
+.nav_logo a {
     width: 100%;
     height: 100%;
     display: flex;
@@ -38,24 +37,18 @@ nav .nav-logo a {
     justify-content: center;
 }
 
-nav .nav-logo a img {
+.nav_logo a img {
     width: 100px;
 }
 
-/* nav .nav-links{
-
-} */
-nav .nav-links ul {
+.nav_links ul {
     text-decoration: none;
     list-style-type: none;
     display: flex;
     gap: 10px;
 }
 
-/* nav .nav-links ul li{
-    
-} */
-nav .nav-links ul li a {
+.nav_links ul li a {
     padding: 5px 15px;
     border: 1px solid var(--nav-border-color);
     border-radius: var(--nav-border-radius);
@@ -66,12 +59,12 @@ nav .nav-links ul li a {
     transition: background-color 0.3s ease-out, color 0.3s ease-out;
 }
 
-nav .nav-links ul li a:hover {
+.nav_links ul li a:hover {
     background-color: black;
     color: white;
 }
 
-nav .nav-authentication-wrapper {
+.nav_authentication_wrapper {
     height: 64px;
     display: flex;
     align-items: center;
@@ -79,7 +72,7 @@ nav .nav-authentication-wrapper {
     z-index: 10;
 }
 
-nav .nav-authentication-wrapper .nav-authentication-btn {
+.nav_authentication_btn {
     width: 260px;
     height: 64px;
     border: 1px solid var(--nav-border-color);
@@ -92,7 +85,7 @@ nav .nav-authentication-wrapper .nav-authentication-btn {
     justify-content: space-between;
 }
 
-nav .nav-authentication-wrapper .nav-authentication-btn a {
+.nav_authentication_btn a {
     width: 100%;
     margin: 0 5px;
     padding: 10px 15px;
@@ -106,41 +99,41 @@ nav .nav-authentication-wrapper .nav-authentication-btn a {
     transition: all 0.4s ease;
 }
 
-nav .nav-authentication-wrapper .nav-authentication-btn a:first-of-type {
+.nav_authentication_btn a:first-of-type {
     color: black;
 }
 
-nav .nav-authentication-wrapper .nav-authentication-btn a:last-of-type {
+.nav_authentication_btn a:last-of-type {
     background-color: black;
     color: white;
 }
 
-nav .nav-authentication-wrapper .nav-authentication-btn a:first-of-type:hover {
+.nav_authentication_btn a:first-of-type:hover {
     background-color: lightgray;
 }
 
-nav .nav-authentication-wrapper .nav-authentication-btn:has(a:first-of-type:hover) a:last-of-type {
+.nav_authentication_btn:has(a:first-of-type:hover) a:last-of-type {
     width: 0%;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-nav .nav-authentication-wrapper .nav-authentication-btn:has(a:last-of-type:hover) a:first-of-type {
+.nav_authentication_btn:has(a:last-of-type:hover) a:first-of-type {
     width: 0%;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-nav .hamburger {
+.hamburger {
     margin-left: 10px;
     margin-top: 7px;
     display: none;
 }
 
 
-nav .hamburger button {
+.hamburger button {
     width: 60px;
     height: 60px;
     display: flex;
@@ -156,18 +149,18 @@ nav .hamburger button {
     transition: background-color 0.3s ease-out, color 0.3s ease-out;
 }
 
-nav .hamburger:hover button {
+.hamburger:hover button {
     background-color: black;
     cursor: pointer;
     color: white;
 }
 
-nav .hamburger .black{
-    background-color: black;
+.black{
+    background-color: black !important;
     color: white;
 }
 
-.portable-device {
+.portable_device {
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -180,7 +173,7 @@ nav .hamburger .black{
     display: none;
 }
 
-.portable-device .mobile-menu {
+.mobile_menu {
     width: 100%;
     /* height: 50vh; */
     border: 1px solid black;
@@ -191,7 +184,7 @@ nav .hamburger .black{
     margin-top: 100px;
 }
 
-.portable-device .mobile-menu ul{
+.mobile_menu ul{
     width: 100%;
     height: 100%;
     padding: 25px;
@@ -199,7 +192,7 @@ nav .hamburger .black{
     list-style-type: none;
 }
 
-.portable-device .mobile-menu ul li a{
+.mobile_menu ul li a{
     display: block;
     width: 100%;
     margin: 10px 0;
@@ -212,12 +205,12 @@ nav .hamburger .black{
     transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
-.portable-device .mobile-menu ul li a:hover{
+.mobile_menu ul li a:hover{
     background-color: black;
     color: white;
 }
 
-.portable-device .mobile-menu .mobile-authentication-module{
+.mobile_authentication_module{
     width: 100%;
     display: flex;
     align-items: center;
@@ -225,7 +218,7 @@ nav .hamburger .black{
     gap: 15px;
     margin-top: 20px;
 }
-.portable-device .mobile-menu .mobile-authentication-module a{
+.mobile_authentication_module a{
     width: 100%;
     text-decoration: none;
     padding: 25px;
@@ -236,50 +229,47 @@ nav .hamburger .black{
     transition: background-color 0.2s ease-out;
 }
 
-.portable-device .mobile-menu .mobile-authentication-module a:hover{
+.mobile_authentication_module a:hover{
     background-color: #303030;
 }
 
 
 
 @media screen and (max-width: 1201px) {
-    nav .nav-wrapper {
+    .nav_wrapper {
         width: 100%;
     }
 
-    nav .nav-wrapper .nav-logo {
+    .nav_logo {
         width: 100%;
         text-align: center;
         justify-items: center;
     }
 
-    nav .nav-links {
+    .nav_links {
         display: none;
     }
 
-    nav .hamburger {
+    .hamburger {
         display: block;
     }
 
-    .enable-portable-device {
+    .enable_portable_device {
         display: block;
     }
 
-    .enable-mobile-mode{
+    .enable_mobile_mode{
         display: none !important;
     }
 }
 
 @media screen and (max-width: 770px) {
-    /* .enable-portable-device {
-        display: block;
-    } */
 
-    nav .nav-authentication-wrapper .nav-authentication-btn {
+    .nav_authentication_btn {
         display: none;
     }
 
-    .enable-mobile-mode{
+    .enable_mobile_mode{
         display: flex !important;
     }
 

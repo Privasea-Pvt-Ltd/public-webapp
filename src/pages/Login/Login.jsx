@@ -51,14 +51,10 @@ function Login() {
             //Login
             const response = await axios.post(`${backendURL}/login`, { email, password });
             if (response.status === 200) {
-                await loadProfile();
-                setIsLoggedIn(true);
                 navigate("/public-webapp/dashboard");
             }
         } catch (error) {
             if (error.response.data.status === 403) {
-                setIsLoggedIn(true);
-                // setIsVerified(false);
                 toast.info("Please verify your account",
                     { toastId: "sww" },
                     { className: "error-toast" }
@@ -74,10 +70,6 @@ function Login() {
         } finally {
             setLoading(false);
         }
-    }
-
-    if (isLoggedIn) {
-        return <Navigate to="/public-webapp/dashboard" replace />;
     }
 
     return (

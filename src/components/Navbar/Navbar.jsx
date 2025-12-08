@@ -1,6 +1,6 @@
-import './styles/Navbar.css'
-import { assets } from '../assets/assets.js';
-import { navigation } from "../constants";
+import navbarCss from './Navbar.module.css'
+import { assets } from '../../assets/assets.js';
+import { navigation } from "../../constants/index.js";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
@@ -9,11 +9,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <nav>
-      <div className="nav-wrapper">
-        <div className="nav-logo">
+      <div className={navbarCss.nav_wrapper}>
+        <div className={navbarCss.nav_logo}>
           <a href="/"><img src={assets.brandLogo} alt='Logo' /></a>
         </div>
-        <div className="nav-links">
+        <div className={navbarCss.nav_links}>
           <ul>
               {navigation.map((item) => (
                 <li key={item.id}>
@@ -23,29 +23,29 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <div className="nav-authentication-wrapper">
-        <div className="nav-authentication-btn">
+      <div className={navbarCss.nav_authentication_wrapper}>
+        <div className={navbarCss.nav_authentication_btn}>
             <a onClick={() => navigate("/public-webapp/login")}>Login</a>
             <a onClick={() => navigate("/public-webapp/signup")}>Signup</a>
         </div>
-        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        <div className={navbarCss.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
             {
               menuOpen ? 
-              <button className='black'><i className="icon ph-bold ph-x" /></button> : 
+              <button className={navbarCss.black}><i className="icon ph-bold ph-x" /></button> : 
               <button><i className="icon ph-bold ph-list" /></button>
             }
         </div>
       </div>
 
-      <div className={menuOpen ? "portable-device enable-portable-device" : "portable-device"}>
-        <div className="mobile-menu">
+      <div className={menuOpen ? `${navbarCss.portable_device} ${navbarCss.enable_portable_device}` : `${navbarCss.portable_device}`}>
+        <div className={navbarCss.mobile_menu}>
           <ul>
               {navigation.map((item) => (
                 <li key={item.id}>
                   <a href={item.url}>{item.title}</a>
                 </li>
               ))}
-              <div className="mobile-authentication-module enable-mobile-mode">
+              <div className= {`${navbarCss.mobile_authentication_module} ${navbarCss.enable_mobile_mode}`}>
                 <a onClick={() => navigate("/public-webapp/login")}>Login</a>
                 <a onClick={() => navigate("/public-webapp/signup")}>Signup</a>
               </div>

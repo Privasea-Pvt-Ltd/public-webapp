@@ -8,7 +8,7 @@
 .featuresHeading{
     width: 50%;
 }
-.heading .tag{
+.tag{
     width: fit-content;    
     padding: 7px 14px;
     border-radius: 20px;
@@ -16,10 +16,10 @@
     color: white;
     margin-bottom: 1rem;
 }
-.heading .title{
+.title{
     font-size: 36px;
 }
-.heading .text{
+.text{
     margin-top: 1rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
