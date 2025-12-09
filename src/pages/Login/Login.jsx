@@ -51,6 +51,7 @@ function Login() {
             //Login
             const response = await axios.post(`${backendURL}/login`, { email, password });
             if (response.status === 200) {
+                setIsLoggedIn(true);
                 navigate("/public-webapp/dashboard");
             }
         } catch (error) {
@@ -59,6 +60,7 @@ function Login() {
                     { toastId: "sww" },
                     { className: "error-toast" }
                 );
+                setIsVerified("not_verified");
                 navigate(`/public-webapp/verify?email=${email}`);
             } else {
                 setPassword("");
@@ -70,6 +72,11 @@ function Login() {
         } finally {
             setLoading(false);
         }
+    }
+
+    // console.log(isLoggedIn);
+    if(isLoggedIn){
+        return <Navigate to="/public-webapp/dashboard" replace />;
     }
 
     return (

@@ -65,7 +65,7 @@ function Signup() {
           { toastId: "info" },
           { className: "info-toast" }
         );
-        setIsVerified(false);
+        setIsVerified("not_verified");
         navigate(`/public-webapp/verify?email=${email}`);
       }
     } catch (error) {

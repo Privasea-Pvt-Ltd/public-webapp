@@ -8,43 +8,40 @@ export const AppContextProvider = (props) => {
     const backendURL = Endpoints.BACKEND_URL;
     const [isLoggedIn, setIsLoggedIn] = useState(null);
     const [isVerified, setIsVerified] = useState(null);
-    const [authName, setAuthName] = useState(null);
     const [authEmail, setAuthEmail] = useState(null);
 
-    useEffect(() => {
+
+    const authCheck = () => {
         axios.defaults.withCredentials = true;
         axios.get(`${backendURL}/is-authenticated`)
             .then(res => {
-                const isAuth = res?.data?.authenticated || res?.data?.data?.authenticated;
-                if (isAuth) {
+                const resData = res?.data?.data;
+                const profile = resData?.profile;
+                if (resData?.authenticated) {
                     setIsLoggedIn(true);
-                    axios.get(`${backendURL}/profile`)
-                        .then(res => {
-                            setAuthName(res.data?.name);
-                            setAuthEmail(res.data?.email);
-                            setIsVerified(res.data?.isAccountVerified);
-                        }).catch(() => {
-                            setAuthName(null);
-                            setAuthEmail(null);
-                            setIsVerified(null);
-                        });
+                    setAuthEmail(profile?.email);
+                    setIsVerified(profile?.isAccountVerified ? "verified" : "not_verified");
                 } else {
                     setIsLoggedIn(false);
-                    setIsVerified(false);
+                    setIsVerified("none");
                 }
             })
             .catch(() => {
                 setIsLoggedIn(false);
-                setIsVerified(false);
+                setIsVerified("none");
             });
+    }
+
+    useEffect(() => {
+        authCheck();
     }, []);
 
     const contextValue = {
         backendURL,
         isLoggedIn, setIsLoggedIn,
         isVerified, setIsVerified,
-        authName, setAuthName,
         authEmail, setAuthEmail,
+        authCheck
     }
 
     return (

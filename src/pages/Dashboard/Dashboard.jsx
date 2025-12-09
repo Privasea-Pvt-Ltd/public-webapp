@@ -6,7 +6,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 function Dashboard() {
-  const { setIsLoggedIn, setIsVerified, backendURL, authName } = useContext(AppContext);
+  const { setIsLoggedIn, setIsVerified, backendURL, authEmail, setAuthEmail } = useContext(AppContext);
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -15,7 +15,6 @@ function Dashboard() {
       const response = await axios.post(backendURL + "/logout");
       if (response.status === 200) {
         setIsLoggedIn(false);
-        setIsVerified(false);
         toast.success("Logged out successfully!",
           { toastId: "success" },
           { className: "success-toast" }
@@ -29,7 +28,7 @@ function Dashboard() {
 
   return (
     <div className={dashboardCss.dashboard_container}>
-      <h1 className={dashboardCss.title}>Welcome {authName}</h1>
+      <h1 className={dashboardCss.title}>Welcome {authEmail}</h1>
       <button onClick={handleLogout}>Logout</button>
     </div>
   )
