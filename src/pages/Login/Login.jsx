@@ -10,36 +10,31 @@ import Divider from '../../components/Divider/Divider'
 import InputField from '../../components/FormFields/InputField'
 
 function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [emailormobile, setEmailormobile] = useState("");
     const [loading, setLoading] = useState(false);
     const { backendURL, isLoggedIn, setIsLoggedIn, setIsVerified, loadProfile } = useContext(AppContext);
     const navigate = useNavigate();
 
-    const validateEmail = (email) => {
-        if (!email.trim()) return "Email is required";
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-            return "Enter a valid email";
-        return "";
+    const validateEmailOrMobile = (emailormobile) => {
+        if (!emailormobile.trim()) return "Email or mobile number is required";
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[6-9]\d{9}$/; // Indian 10-digit mobile numbers
+
+        if (emailRegex.test(emailormobile)) return "";
+        if (phoneRegex.test(emailormobile)) return "";
+
+        return "Please enter a valid email or mobile number";
     };
 
-    const validatePassword = (password) => {
-        if (!password.trim()) return "Password is required";
-        const strong =
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        if (!strong.test(password))
-            return "Minimum 8 chars with uppercase, lowercase, number, and symbol.";
-        return "";
-    };
-
+    // Submit Logic
     const onSubmitHandler = async (e) => {
         e.preventDefault();
         axios.defaults.withCredentials = true;
-        const emailErr = validateEmail(email);
-        const passwordErr = validatePassword(password);
+        const emailorMobileErr = validateEmailOrMobile(emailormobile);
 
-        if (emailErr || passwordErr) {
-            toast.error((emailErr || passwordErr),
+        if (emailorMobileErr) {
+            toast.error((emailorMobileErr),
                 { toastId: "validation" },
                 { className: "error-toast" }
             );
@@ -47,9 +42,10 @@ function Login() {
         }
 
         setLoading(true);
+        
         try {
             //Login
-            const response = await axios.post(`${backendURL}/login`, { email, password });
+            const response = await axios.post(`${backendURL}/login`, { emailormobile });
             if (response.status === 200) {
                 setIsLoggedIn(true);
                 navigate("/public-webapp/dashboard");
@@ -61,7 +57,7 @@ function Login() {
                     { className: "error-toast" }
                 );
                 setIsVerified("not_verified");
-                navigate(`/public-webapp/verify?email=${email}`);
+                navigate(`/public-webapp/verify?email=${emailormobile}`);
             } else {
                 setPassword("");
                 toast.error(error.response.data?.message || "Something went wrong",
@@ -89,35 +85,19 @@ function Login() {
 
                 <form onSubmit={onSubmitHandler}>
                     <InputField
-                        id="email"
-                        label="Email"
-                        type="email"
-                        placeholder='Email'
-                        value={email}
-                        onChange={setEmail}
+                        id="emailormobile"
+                        label=""
+                        type="text"
+                        placeholder='Email or mobile number'
+                        value={emailormobile}
+                        onChange={setEmailormobile}
                         autoFocus={true}
                         autoComplete='off'
                     />
 
-                    <InputField
-                        id="password"
-                        label="Password"
-                        type="password"
-                        placeholder='Password'
-                        value={password}
-                        onChange={setPassword}
-                        autoFocus={false}
-                        autoComplete='off'
-                        blockCopyPaste={true}
-                        rightElement={
-                            <Link to="/public-webapp/reset-password" className='label_right_link'>Forgot password?</Link>
-                        }
-                    />
-
                     <button type='submit' className={pagesCss.btn} disabled={loading}>
-                        {loading ? "Please wait..." : "Login"}
+                        {loading ? "Please wait..." : "Continue"}
                     </button>
-
                 </form>
 
                 <Divider />
@@ -125,9 +105,9 @@ function Login() {
                 <button className={pagesCss.social_btn}><img src={assets.googleIcon} alt="Google Icon" />Sign in with Google</button>
                 <button className={pagesCss.social_btn}><img src={assets.appleIcon} alt="Apple Icon" />Sign in with Apple</button>
 
-                <div className={pagesCss.auth_footer}>
+                {/* <div className={pagesCss.auth_footer}>
                     <p>Don't have an account? <Link to="/public-webapp/signup" className={pagesCss.auth_footer_link}>Signup</Link></p>
-                </div>
+                </div> */}
             </div>
         </div>
     );
