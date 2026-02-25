@@ -12,18 +12,15 @@ import InputField from '../../components/FormFields/InputField'
 function Login() {
     const [emailormobile, setEmailormobile] = useState("");
     const [loading, setLoading] = useState(false);
-    const { backendURL, isLoggedIn, setIsLoggedIn, setIsVerified, loadProfile } = useContext(AppContext);
+    const { backendURL, isLoggedIn, setIsLoggedIn, loadProfile } = useContext(AppContext);
     const navigate = useNavigate();
 
     const validateEmailOrMobile = (emailormobile) => {
         if (!emailormobile.trim()) return "Email or mobile number is required";
-
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const phoneRegex = /^[6-9]\d{9}$/; // Indian 10-digit mobile numbers
-
+        const phoneRegex = /^\+?[1-9]\d{7,14}$/;
         if (emailRegex.test(emailormobile)) return "";
         if (phoneRegex.test(emailormobile)) return "";
-
         return "Please enter a valid email or mobile number";
     };
 
@@ -32,7 +29,6 @@ function Login() {
         e.preventDefault();
         axios.defaults.withCredentials = true;
         const emailorMobileErr = validateEmailOrMobile(emailormobile);
-
         if (emailorMobileErr) {
             toast.error((emailorMobileErr),
                 { toastId: "validation" },
@@ -40,13 +36,11 @@ function Login() {
             );
             return;
         }
-
-        setLoading(true);
-        
+        setLoading(true);        
         try {
-            //Login
             const response = await axios.post(`${backendURL}/login`, { emailormobile });
             if (response.status === 200) {
+                // Prompt for OTP
                 setIsLoggedIn(true);
                 navigate("/public-webapp/dashboard");
             }
@@ -57,9 +51,9 @@ function Login() {
                     { className: "error-toast" }
                 );
                 setIsVerified("not_verified");
-                navigate(`/public-webapp/verify?email=${emailormobile}`);
+                navigate(`/public-webapp/verify?emailormobile=${emailormobile}`);
             } else {
-                setPassword("");
+                // setPassword("");
                 toast.error(error.response.data?.message || "Something went wrong",
                     { toastId: "sww" },
                     { className: "error-toast" }
@@ -69,7 +63,6 @@ function Login() {
             setLoading(false);
         }
     }
-
     // console.log(isLoggedIn);
     if(isLoggedIn){
         return <Navigate to="/public-webapp/dashboard" replace />;

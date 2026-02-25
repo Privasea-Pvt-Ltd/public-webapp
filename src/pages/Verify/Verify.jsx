@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 
 function Verify() {
   const [searchParams] = useSearchParams();
-  const email = searchParams.get("email");
+  const emailormobile = searchParams.get("emailormobile");
   const [otpArr, setOtpArr] = useState(new Array(6).fill(""));
   const refArr = useRef([]);
   const [loading, setLoading] = useState(false);
@@ -24,7 +24,7 @@ function Verify() {
     axios.defaults.withCredentials = true;
     const otp = otpArr.join("");
     if (otp == null || otp.length !== 6) {
-      toast.error("Please enter the 6-digit OTP",
+      toast.error("Enter the 6-digit verification code",
         { toastId: "otp-validation" },
         { className: "error-toast" }
       );
@@ -33,13 +33,14 @@ function Verify() {
     setLoading(true);
     try {
       // Verify OTP
-      const response = await axios.post(`${backendURL}/verify-otp`, { email, otp });
+      const response = await axios.post(`${backendURL}/verify-otp`, { emailormobile, otp });
       if (response.status === 200) {
         navigate("/public-webapp/login");
         toast.success("Account verified successfully!",
           { toastId: "success" },
           { className: "success-toast" }
         );
+        navigate("/public-webapp/dashboard");
       }
     } catch (error) {
       setOtpArr(new Array(6).fill(""));
@@ -72,16 +73,32 @@ function Verify() {
     }
   }
 
-  function maskEmail(email) {
-    if (email === null) return;
-    const [localPart, domain] = email.split("@");
-    if (localPart.length <= 2) {
-      return `${localPart[0]}*@${domain}`;
+  const maskEmailOrMobile = (emailormobile) => {
+    if (!emailormobile) return "";
+    // Detect Email
+    if (emailormobile.includes("@")) {
+      const [localPart, domain] = emailormobile.split("@");
+      if (localPart.length <= 2) {
+        return `${localPart[0]}**@${domain}`;
+      }
+      return (
+        localPart[0] +
+        "**" +
+        localPart[localPart.length - 1] +
+        "@" +
+        domain
+      );
     }
-    return (
-      localPart[0] + ".." + localPart[localPart.length - 1] + "@" + domain
-    );
-  }
+    // Detect Mobile (Indian 10-digit)
+    if (/^\d{10}$/.test(emailormobile)) {
+      return emailormobile.slice(0, 2) + "*****" + emailormobile.slice(-2);
+    }
+    // Fallback (International numbers)
+    if (/^\+?\d+$/.test(email)) {
+      return emailormobile.slice(0, 3) + "*****" + emailormobile.slice(-2);
+    }
+    return emailormobile;
+  };
 
   useEffect(() => {
     if (timer === 0) {
@@ -97,7 +114,7 @@ function Verify() {
   const handleResend = () => {
     if (!canResend) return;
     // call your API to resend OTP
-    console.log("OTP Resent!");
+    console.log("Code Resent!");
 
     setTimer(60);
     setCanResend(false);
@@ -117,8 +134,8 @@ function Verify() {
             <div className={accountVerifyCss.otp_box}>
 
               <div className={accountVerifyCss.otp_header}>
-                <h3>Verify OTP</h3>
-                <p>Enter the 6-digit code sent to <span>{maskEmail(email)}</span></p>
+                <h3>Verify Code</h3>
+                <p>Enter the 6-digit code sent to <span>{maskEmailOrMobile(emailormobile)}</span></p>
               </div>
 
               <div className={accountVerifyCss.otp_field_box}>
@@ -142,7 +159,7 @@ function Verify() {
             </div>
 
             <button type='submit' className={pagesCss.btn} disabled={loading}>
-              {loading ? "Please wait..." : "Verify OTP"}
+              {loading ? "Please wait..." : "Verify Code"}
             </button>
 
           </form>
@@ -155,12 +172,12 @@ function Verify() {
                   className={pagesCss.auth_footer_link}
                   style={{ cursor: "pointer" }}
                 >
-                  Resend OTP
+                  Resend Code
                 </a>
               </p>
             ) : (
               <p>
-                You can resend OTP in{" "}{timer}s
+                You can resend code in{" "}{timer}s
               </p>
             )}
           </div>
