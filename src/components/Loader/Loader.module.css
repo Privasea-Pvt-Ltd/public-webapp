@@ -1,6 +1,9 @@
 :root {
-    --color1: #FF6A00;
-    --color2: #FFB300;
+    /* --color1: #FF6A00; */
+    /* --color2: #FFB300; */
+
+    --color1: #2b2b2b;
+    --color2: #b2b2b2;
 }
 
 .loader_container{

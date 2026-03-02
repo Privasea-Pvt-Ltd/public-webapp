@@ -7,7 +7,14 @@ import axios from 'axios';
 function VerificationRoute({ children }) {
     const { isVerified, authCheck } = useContext(AppContext);
 
-    useEffect(() => {
+    /*
+    Fetch the parameters from the URL generated after the user enters their email or phone number during the initial login step. 
+    On the verification page, extract the generated cipher text and send it to the backend for validation. 
+    The backend verifies the cipher text against the associated email or phone number and, 
+    upon successful validation, sends a verification code to the user and this verification page will be shown. 
+    After the verification is completed, the user is redirected to the dashboard.  
+    */
+   useEffect(() => {
         console.log("Verification");
         authCheck();
     }, []);

@@ -14,8 +14,7 @@ function ProtectedRoute({ children }) {
     if (isLoggedIn === null) {
         return <Loader />;
     }
-
-
+    
     return isLoggedIn ? children : <Navigate to="/public-webapp/login" replace />;
 }
 

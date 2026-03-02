@@ -13,20 +13,17 @@ function App() {
       <ToastContainer position="bottom-right"/>
       <Routes>
         <Route path='/public-webapp' element={<Home />} />
-        <Route path='/public-webapp/login' element={<Login />} /> 
-
-        <Route path='/public-webapp/dashboard' element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        } />
-
+        <Route path='/public-webapp/login' element={<Login />} />
         <Route path='/public-webapp/verify' element={
           <VerificationRoute>
             <Verify/>
           </VerificationRoute>
         } />
-
+        <Route path='/public-webapp/dashboard' element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        } />
       </Routes>
     </>
   )

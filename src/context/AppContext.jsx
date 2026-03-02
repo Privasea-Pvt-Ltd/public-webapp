@@ -7,7 +7,7 @@ export const AppContext = createContext();
 export const AppContextProvider = (props) => {
     const backendURL = Endpoints.BACKEND_URL;
     const [isLoggedIn, setIsLoggedIn] = useState(null);
-    const [isVerified, setIsVerified] = useState(null);
+    // const [isVerified, setIsVerified] = useState(null);
     const [authEmail, setAuthEmail] = useState(null);
 
 
@@ -20,15 +20,15 @@ export const AppContextProvider = (props) => {
                 if (resData?.authenticated) {
                     setIsLoggedIn(true);
                     setAuthEmail(profile?.email);
-                    setIsVerified(profile?.isAccountVerified ? "verified" : "not_verified");
+                    // setIsVerified(profile?.isAccountVerified ? "verified" : "not_verified");
                 } else {
                     setIsLoggedIn(false);
-                    setIsVerified("none");
+                    // setIsVerified("none");
                 }
             })
             .catch(() => {
                 setIsLoggedIn(false);
-                setIsVerified("none");
+                // setIsVerified("none");
             });
     }
 
@@ -39,7 +39,7 @@ export const AppContextProvider = (props) => {
     const contextValue = {
         backendURL,
         isLoggedIn, setIsLoggedIn,
-        isVerified, setIsVerified,
+        // isVerified, setIsVerified,
         authEmail, setAuthEmail,
         authCheck
     }
